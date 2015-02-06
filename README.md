@@ -9,4 +9,4 @@ Meteor & Phantomjsのテスト実行環境はコンテナとしてDocker Hubで�
 [Docker Hub - dogrunjp's Repositories](https://registry.hub.docker.com/u/dogrunjp/docker-s2p/)
 
 ##課題
-MeteorのCollectionをデータソースとしたd3.jsな可視化表現の実装途中です。現在Meteor-D3.jsで参考となるサンプルは、密な実装が多いような印象。。。
+MeteorのCollectionをデータソースとしたd3.jsな可視化表現の**実装途中**です。現在Meteor-D3.jsで参考となるサンプルは、密な実装が多いような印象。。。
