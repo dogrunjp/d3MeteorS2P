@@ -1,5 +1,10 @@
 # d3MeteorS2P
-service proto type, translate d3.js svg to png in phantomjs &amp; Meteor sever
+Service proto type, translate d3.js svg to png with phantomjs &amp; Meteor
 
 
-d3.jsによって描画されるSVGをブラウザに表示されたままPhantomjsのヘッドレスなブラウザでキャプチャしPNGファイルとして出力するアプリケーションのプロジェクトです。Webの表示とヘッドレスブラウザはMeteorを使って同期します。
+d3.jsによってSVGとして可視化されをグラフをブラウザに表示されたままPhantomjsのヘッドレスにキャプチャしPNGファイルとして出力するアプリケーションのプロジェクトです。Webの表示とキャプチャ用のデータソースはMeteorを使って同期します。
+
+##テスト用実行環境環
+Meteor & Phantomjsの実行環境はDocker Hubで提供します。
+
+[Docker Hub dogrun Repositories](https://hub.docker.com/u/dogrunjp/)
