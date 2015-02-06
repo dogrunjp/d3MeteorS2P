@@ -7,4 +7,4 @@ d3.jsによってSVGとして可視化されをグラフをブラウザに表示
 ##テスト用実行環境環
 Meteor & Phantomjsの実行環境はDocker Hubで提供します。
 
-[Docker Hub dogrun Repositories](https://hub.docker.com/u/dogrunjp/)
+[Docker Hub - dogrunjp's Repositories](https://hub.docker.com/u/dogrunjp/)
