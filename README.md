@@ -16,13 +16,18 @@ Meteor用のリアクティブなd3.jsのサンプルをアップしました。
 
 Meteorのversionは1.0.3.1ですが、今回リアクティブ・コンテキストの実装に使っているautorun関係のAPIはこのヴァージョンまでにいろいろ変わっている様子であるため、今後のMeteorのアップデートでこのサンプルスクリプトが動くかどうかは疑問なとろ頃です。
 
-*Meteor環境でd3.jsを利用するためにコンソールからd3をインストールする必要があります。
+Meteor環境でd3.jsを利用するためにコンソールからd3をインストールする必要があります。
 
 **meteor add d3**
 
-*サンプルアプリではserver側でcollection "Growthes"をpublishしています。これはデフォルトでcollectionがserver-client間で全て共有されるautopublishの設定を外しているためです。
+サンプルアプリではserver側でcollection "Growthes"をpublishしています。これはデフォルトでcollectionがserver-client間で全て共有されるautopublishの設定を外しているためです。
 
 **meteor remove autopublish**
+
+Meteo + d3.jsなところまでのリアクティブなアプリケーションのサンプルはMeteorのサービスにデプロイしています。
+
+[シンプルなリアクティブアプリのサンプル](http://simpled3reactiveapp.meteor.com/)
+
 
 ##今後
 1. phantom.jsでキャプチャーする感じのスクリプトの作成
