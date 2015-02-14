@@ -36,7 +36,7 @@ if (Meteor.isClient) {
         'click rect':function(e){
             var dId = e.target.id;
             var dFlg = e.target.getAttribute('data-selected');
-            Session.set({'selectedId': dId,'dataIsSelected': dFlg});
+            //Session.set({'selectedId': dId,'dataIsSelected': dFlg});////Sessionの変更でもTracker.autorunは発火するはずなんだけど上手く行かなかった。。
             thisFlag = Growthes.findOne({_id: dId},{fields:{flg:1}}); //取得したIDから一致するdocumentのflg値を取得（_id+flgのobjectが得られる）
             Growthes.update({_id:dId},{$set:{flg:!thisFlag.flg}}); //collectionのflgを現在の逆の値でアップデートする
             //console.log(dFlg + ":" + dId);
