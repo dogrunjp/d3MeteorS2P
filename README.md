@@ -2,7 +2,9 @@
 Prototype Serivce Project for Convert d3.js SVG to PNG files with phantomjs &amp; Meteor.
 
 
-d3.jsによってSVGとして可視化されをグラフをブラウザに表示されたままPhantomjsでヘッドレスにキャプチャしPNGファイルとして出力するアプリケーションのプロジェクトです。Webの表示とキャプチャ用のデータソースはMeteorを使って同期します。
+d3.jsによってSVGとして可視化されたグラフをブラウザに表示されたままの状態でPhantomjsでヘッドレスにキャプチャし、PNGファイルとして出力するアプリケーションのプロジェクトです。
+
+Webの表示とキャプチャ用のデータソースはMeteorを使って同期します。
 
 ##テストアプリの実行環境
 Meteor & Phantomjsのテスト実行環境はコンテナとしてDocker Hubで提供します。
