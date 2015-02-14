@@ -18,11 +18,11 @@ Meteorのversionは1.0.3.1ですが、今回リアクティブ・コンテキス
 
 Meteor環境でd3.jsを利用するためにコンソールからd3をインストールする必要があります。
 
-**meteor add d3**
+>**meteor add d3**
 
 サンプルアプリではserver側でcollection "Growthes"をpublishしています。これはデフォルトでcollectionがserver-client間で全て共有されるautopublishの設定を外しているためです。
 
-**meteor remove autopublish**
+>**meteor remove autopublish**
 
 Meteo + d3.jsなところまでのリアクティブなアプリケーションのサンプルはMeteorのサービスにデプロイしています。
 
