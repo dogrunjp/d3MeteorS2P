@@ -56,7 +56,6 @@ if (Meteor.isClient) {
                 d.x = +d.x;
                 d.y = +d.y;
             });
-            console.log(data)
 
             svg.selectAll("g")
                 .data(data)
@@ -67,7 +66,6 @@ if (Meteor.isClient) {
                 d.x = +d.x;
                 d.y = +d.y;
              });
-            console.log(data);
             svg.selectAll("rect")
                 .data(data)
                 .attr("x", function(d, i){return i * 38})
