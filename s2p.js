@@ -48,6 +48,9 @@ if (Meteor.isClient) {
         },
         'click #getpicture':function(){
             Meteor.call('getPageAsPNG');
+            Meteor.setTimeout(function(){
+              window.open("./mp.png")
+            }, 1000);
             console.log('getPageAsPNG');
         }
     });
