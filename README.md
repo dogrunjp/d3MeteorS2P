@@ -8,11 +8,14 @@ Webの表示とキャプチャ用のデータソースはMeteorを使って同�
 
 ##テストアプリの実行環境
 Meteor & Phantomjsのテスト実行環境はコンテナとしてDocker Hubで提供します。
+
 [Docker Hub - dogrunjp's Repositories](https://registry.hub.docker.com/u/dogrunjp/docker-meteor-phantomjs/)
 
 ##進行状況
-Meteor用のリアクティブなd3.jsのサンプルをアップしました。
+- Meteor用のリアクティブなd3.jsのサンプルをアップしました。
 できる限りシンプルにd3.jsの棒グラフがリアクティブに共有されるサンプルにしています。
+
+- ページを静的ファイルとしてレンダリングするスクリプトを設置。
 
 Meteorのversionは1.0.3.1ですが、今回リアクティブ・コンテキストの実装に使っているaustorun関係のAPIはこのヴァージョンまでにいろいろ変わっている様子であるため、今後のMeteorのアップデートでこのサンプルスクリプトが動くかどうかは疑問なとろ頃です。
 
@@ -24,11 +27,21 @@ Meteor環境でd3.jsを利用するためにコンソールからd3をインス�
 
 >**meteor remove autopublish**
 
+Meteorアプリケーションにパッケージを追加するため、下記のコマンドをプロジェクトディレクトリ内で実行します。
+
+>**meteor add meteorhacks:npm**
+
+一旦Metorを起動し、そのまま終了すると"package.json"がプロジェクト内にできているのでそこにphantom.jsの記述を追加します。
+
+>** { "phantomjs":"1.9.8" }**
+
+
+
+
 Meteo + d3.jsなところまでのリアクティブなアプリケーションのサンプルはMeteorのサービスにデプロイしています。
 
+
+
+##おまけ
+
 [シンプルなリアクティブアプリのサンプル](http://simpled3reactiveapp.meteor.com/)
-
-
-##今後
-1. phantom.jsでキャプチャーする感じのスクリプトの作成
-2. d3.jsのサンプルをリアクティブなアプリケーションの良さが何となく伝わるレベルのものに。。。
