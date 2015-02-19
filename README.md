@@ -8,7 +8,7 @@ Webの表示とキャプチャ用のデータソースはMeteorを使って同�
 
 ##テストアプリの実行環境
 Meteor & Phantomjsのテスト実行環境はコンテナとしてDocker Hubで提供します。
-[Docker Hub - dogrunjp's Repositories](https://registry.hub.docker.com/u/dogrunjp/docker-s2p/)
+[Docker Hub - dogrunjp's Repositories](https://registry.hub.docker.com/u/dogrunjp/docker-meteor-phantomjs/)
 
 ##進行状況
 Meteor用のリアクティブなd3.jsのサンプルをアップしました。

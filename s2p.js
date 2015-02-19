@@ -13,43 +13,51 @@ if (Meteor.isServer) {
                 Growthes.insert(data[i]);
             }
         }
-        // Growthesのdocuments全てをサーバからpublish
-        //collectionを全共有しない場合は、meteor remove autopublishし明示的にpublishしておく
         Meteor.publish("all-growth", function(){
-            return Growthes.find(); //全て
+            return Growthes.find();
         });
-
-        // コンソールやclientからのMeteor.call('removeAllGrowth')でGreowthes.removeされる。
-        //collectionはブラウザに残り続けるので。。気持ち悪い場合はコンソールより実行してください。
+  var phantomJS = Meteor.npmRequire("phantomjs");
+  var spawn = Meteor.npmRequire('child_process').spawn;
         return Meteor.methods({
-            removeAllGrowth: function(){
-                return Growthes.remove({});
-            }
-        });
+       getPageAsPNG: function(){
+    command = spawn(phantomJS.path, ['assets/app/phantomDriver.js']);
+    command.stdout.on('data', function (data) {
+                    console.log('stdout: ' + data);
+                });
+                command.stderr.on('data', function (data) {
+                    console.log('stderr: ' + data);
+                });
+                command.on('exit', function (code) {
+                    console.log('child process exited with code ' + code);
+                });
+               //console.log("getpageaspng");
+       }
+        })
+
     })
 }
 
 if (Meteor.isClient) {
-    //subscribeを宣言しcollectionをerver-clientでミラーリング
     Meteor.subscribe("all-growth");
     Template.chart.events({
         'click rect':function(e){
             var dId = e.target.id;
             var dFlg = e.target.getAttribute('data-selected');
-            //Session.set({'selectedId': dId,'dataIsSelected': dFlg});////Sessionの変更でもTracker.autorunは発火するはずなんだけど上手く行かなかった。。
-            thisFlag = Growthes.findOne({_id: dId},{fields:{flg:1}}); //取得したIDから一致するdocumentのflg値を取得（_id+flgのobjectが得られる）
-            Growthes.update({_id:dId},{$set:{flg:!thisFlag.flg}}); //collectionのflgを現在の逆の値でアップデートする
-            //console.log(dFlg + ":" + dId);
+            thisFlag = Growthes.findOne({_id: dId},{fields:{flg:1}});
+            Growthes.update({_id:dId},{$set:{flg:!thisFlag.flg}});
+        },
+        'click #getpicture':function(){
+            Meteor.call('getPageAsPNG');
+            console.log('getPageAsPNG');
         }
     });
 
     Template.chart.rendered = function() {
         svg = d3.select("#sp").append("svg")
-            .attr("width", 600)
-            .attr("height", 300)
+            .attr("width", 275)
+            .attr("height", 275)
             .append("g");
 
-        //template.renderedで最初に一度＆collectionに変更が有ったときに呼び出される
         Tracker.autorun(function(){
             data = Growthes.find().fetch();
             data.forEach(function (d) {
@@ -68,7 +76,7 @@ if (Meteor.isClient) {
              });
             svg.selectAll("rect")
                 .data(data)
-                .attr("x", function(d, i){return i * 38})
+                .attr("x", function(d, i){return (i - 1) * 38})
                 .attr("width", 35)
                 .attr("y", function(d){return +d.y})
                 .attr("height", function(d){return 300 - d.y})

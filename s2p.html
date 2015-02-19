@@ -1,11 +1,27 @@
 <head>
   <title>very simple</title>
+  <style>
+    body{
+      background-color: white;
+      font-family: helvetica, sans-serif;
+    }
+    button{
+      border: solid 1px #bbb;
+      border-radius: 4px;
+      background-color: #eee;
+      font-size: 0.85rem;
+      margin: 5px 20px;
+    }
+    svg {
+      margin: 0 20px;
+    }
+  </style>
 </head>
-
 <body>
  {{> chart}}
 </body>
 
 <template name="chart">
  <div id="sp"></div>
+ <button type="button" id="getpicture">Get Picture</button>
 </template>
