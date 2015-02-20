@@ -48,10 +48,13 @@ if (Meteor.isClient) {
         },
         'click #getpicture':function(){
             Meteor.call('getPageAsPNG');
+            var  d = new Date();
+            var sec = d.getSeconds();
+            var ms = d.getMilliseconds();
+            var imgs = "./mp.png?="+ sec + ms;
             Meteor.setTimeout(function(){
-              window.open("./mp.png")
+              window.open(imgs)
             }, 1000);
-            console.log('getPageAsPNG');
         }
     });
 
