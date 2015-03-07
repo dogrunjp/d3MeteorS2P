@@ -16,12 +16,12 @@ if (Meteor.isServer) {
         Meteor.publish("all-growth", function(){
             return Growthes.find();
         });
-  var phantomJS = Meteor.npmRequire("phantomjs");
-  var spawn = Meteor.npmRequire('child_process').spawn;
+	var phantomJS = Meteor.npmRequire("phantomjs");
+	var spawn = Meteor.npmRequire('child_process').spawn;
         return Meteor.methods({
-       getPageAsPNG: function(){
-    command = spawn(phantomJS.path, ['assets/app/phantomDriver.js']);
-    command.stdout.on('data', function (data) {
+	     getPageAsPNG: function(){
+		command = spawn(phantomJS.path, ['assets/app/phantomDriver.js']);
+		command.stdout.on('data', function (data) {
                     console.log('stdout: ' + data);
                 });
                 command.stderr.on('data', function (data) {
@@ -30,8 +30,7 @@ if (Meteor.isServer) {
                 command.on('exit', function (code) {
                     console.log('child process exited with code ' + code);
                 });
-               //console.log("getpageaspng");
-       }
+	     }
         })
 
     })
@@ -53,8 +52,8 @@ if (Meteor.isClient) {
             var ms = d.getMilliseconds();
             var imgs = "./mp.png?="+ sec + ms;
             Meteor.setTimeout(function(){
-              window.open(imgs)
-            }, 1000);
+              window.open(imgs);
+            }, 200);
         }
     });
 
@@ -82,10 +81,10 @@ if (Meteor.isClient) {
              });
             svg.selectAll("rect")
                 .data(data)
-                .attr("x", function(d, i){return (i - 1) * 38})
+                .attr("x", function(d, i){return i * 38})
                 .attr("width", 35)
                 .attr("y", function(d){return +d.y})
-                .attr("height", function(d){return 300 - d.y})
+                .attr("height", function(d){return 255 - d.y})
                 .attr("fill", function(d){
                     if(d.flg == true){
                         return "orange"
